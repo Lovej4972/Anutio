@@ -39,7 +39,10 @@ import {
   URL_INTRO,
   URL_LOGO_ANIMATION,
   URL_ADD_EXISTING,
-  URL_ALL_CAPTURE
+  URL_ALL_CAPTURE,
+  URL_EDUCATION,
+  URL_EDUCATIONDETAILS,
+  URL_EDUCATIONDCERTIFICATE
 
 } from './src/constants/navigations';
 import IconGenerator from './src/components/shared/IconGenerator';
@@ -82,6 +85,9 @@ import IntroSliderScreen from './src/screens/IntroSliderScreen';
 import LogoAnimationScreen from './src/screens/LogoAnimationScreen';
 import AddCaptureToExistingScreen from './src/screens/CaptureScreen/AddCaptureToExistingScreen';
 import AllCaptureScreen from './src/screens/CaptureScreen/AllCaptureScreen';
+import EducationScreen from './src/screens/EducationScreen/EducationScreen';
+import EducationDetailsScreen from './src/screens/EducationScreen/DetailsScreen';
+import CertificatesScreen from './src/screens/EducationScreen/CertificatesScreen';
 
 
 const Stack = createStackNavigator();
@@ -266,6 +272,10 @@ const AppStack = () => {
       <Stack.Screen name={URL_ADD_EXISTING} component={AddCaptureToExistingScreen} />
       <Stack.Screen name={URL_ALL_CAPTURE} component={AllCaptureScreen} />
       <Stack.Screen name={URL_PROFILE} component={ProfileScreen} />
+      <Stack.Screen name={URL_EDUCATION} component={EducationScreen} />
+      <Stack.Screen name={URL_EDUCATIONDETAILS} component={EducationDetailsScreen} />
+      <Stack.Screen name={URL_EDUCATIONDCERTIFICATE} component={CertificatesScreen} />
+      
     </Stack.Navigator>
   );
 };

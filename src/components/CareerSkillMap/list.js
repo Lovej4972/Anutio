@@ -4,7 +4,7 @@ import Header from '../../components/shared/HeaderNav/Header';
 import HeaderAvatar from '../../components/shared/HeaderNav/HeaderAvatar';
 import VerticalScroll from '../shared/scroll/VerticalScroll';
 import Ellipse from '../../assets/images/Ellipse.png';
-import { URL_TAB, URL_PROJECTS, URL_SKILL_CAREER_MATCH, URL_JOB} from '../../constants/navigations';
+import { URL_TAB, URL_PROJECTS, URL_SKILL_CAREER_MATCH, URL_JOB, URL_EDUCATION} from '../../constants/navigations';
 import Button from '../shared/Button';
 import colors from '../../constants/colors';
 import { appFonts, scale, scaleVertical } from '../../constants/scale';
@@ -28,7 +28,7 @@ const MapList = () => {
             id: 1,
             iconName: "EduIcon",
             title: "Education",
-            goTo:()=>{}
+            goTo:()=>{navigation.navigate(URL_EDUCATION)}
         },
         {
             id: 2,
@@ -49,8 +49,8 @@ const MapList = () => {
             id: 4,
             iconName: "JobIcon",
             title: "Jobs",
-            // goTo:()=>{navigation.navigate(URL_JOB)}
-            goTo:()=>{}
+            goTo:()=>{navigation.navigate(URL_JOB)}
+            // goTo:()=>{}
 
         },
     ]

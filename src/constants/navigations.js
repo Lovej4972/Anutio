@@ -44,6 +44,11 @@ export const URL_POINTS = 'points'
 export const URL_INTRO = 'intro'
 export const URL_LOGO_ANIMATION = 'logo-animate'
 
+export const URL_EDUCATION = 'education'
+export const URL_EDUCATIONDETAILS = 'education-details'
+export const URL_EDUCATIONDCERTIFICATE = 'education-certificate'
+
+
 
 
 

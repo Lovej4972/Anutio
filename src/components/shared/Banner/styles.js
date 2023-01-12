@@ -20,8 +20,9 @@ export default StyleSheet.create({
     
   },
   textContainer:{
-    width:scale(50)*3.5,
+    width:scale(50)*7,
     paddingHorizontal:scale(20),
+    // paddingBottom:20s
 
   },
   btnStyleComp:{

@@ -27,10 +27,10 @@ export default function index({
 
         {
 
-point && <View >
-  <Text style={styles.bodyBold} >{point} Points</Text>
-</View>
-}
+          point && <View >
+            <Text style={styles.bodyBold} >{point} Points</Text>
+          </View>
+        }
         {
 
           body && <View >
