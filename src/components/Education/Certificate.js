@@ -32,7 +32,7 @@ import useGetGoal from '../../hooks/goal/useGetGoal';
 const Certificates = () => {
   const navigation = useNavigation()
 
-const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false)
   const myListEmpty = () => {
     return (
       <View style={{ alignItems: "center" }}>
@@ -128,43 +128,45 @@ const [open, setOpen] = useState(false)
         borderTopLeftRadius: scale(40),
         paddingHorizontal: scale(20),
         // zIndex: 1000,
-      
+
         flex: 1
       }}>
-      
+
       </View>
 
 
-      <View style={{ elevation:2,
-    flex: 1,
-    backgroundColor: colors.background2,
-    // paddingTop: scaleVertical(20),
-    borderTopRightRadius: scale(40),
-    borderTopLeftRadius: scale(40),
-    paddingHorizontal: scale(20),
-    marginTop:-500}}>
-      <View style={{flexDirection:'row',justifyContent:'space-between',marginVertical:scale(15)}}>
+      <View style={{
+        elevation: 2,
+        flex: 1,
+        backgroundColor: colors.background2,
+        // paddingTop: scaleVertical(20),
+        borderTopRightRadius: scale(40),
+        borderTopLeftRadius: scale(40),
+        paddingHorizontal: scale(20),
+        marginTop: -500
+      }}>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginVertical: scale(15) }}>
+          <Text style={{
+            // paddingTop: scale(80),
+            fontFamily: appFonts.Medium.fontFamily, color: colors.black,
+            fontSize: scale(16)
+          }} >Certificates
+          </Text>
+          <TouchableOpacity>
             <Text style={{
-              // paddingTop: scale(80),
-              fontFamily: appFonts.Medium.fontFamily, color: colors.black,
-              fontSize: scale(16)
-            }} >Certificates
-            </Text>
-            <TouchableOpacity>
-              <Text style={{
               paddingRight: scale(10),
               fontFamily: appFonts.BoldText.fontFamily, color: colors.black,
               fontSize: scale(19)
             }} >+</Text>
-              </TouchableOpacity>
-          </View>
-        
- 
+          </TouchableOpacity>
+        </View>
 
-       
+
+
+
         <VerticalScroll bgColor={colors.background2}>
-         
-         
+
+
 
           <FlatList
             // maxToRenderPerBatch={2}
@@ -181,18 +183,25 @@ const [open, setOpen] = useState(false)
                   <Text style={styles.cardTitle}>
                     {item?.title}
                   </Text>
-                  <IconGenerator tagName={"Dot"} />
+                  <IconGenerator tagName={"Edit"} />
 
                 </View>
+                <View style={{ flexDirection: 'row' }}>
+                  <View style={{ padding: scale(7), }}>
+                    <IconGenerator tagName={"Edit"} />
+                  </View>
 
-                <Text style={styles.cardStatus}>
-                  {item?.description}
-                </Text>
-                <Text style={[styles.cardStatus]}>
-                  {new Date(item?.deadline).toDateString()}
-                  {/* {(item?.deadline).toLocaleDateString()} */}
-                  {/* {sideColors[index]} */}
-                </Text>
+                  <View>
+                    <Text style={styles.cardStatus}>
+                      {item?.description}
+                    </Text>
+                    <Text style={[styles.cardStatus]}>
+                      {new Date(item?.deadline).toDateString()}
+                      {/* {(item?.deadline).toLocaleDateString()} */}
+                      {/* {sideColors[index]} */}
+                    </Text>
+                  </View>
+                </View>
               </View>
             )}
           />

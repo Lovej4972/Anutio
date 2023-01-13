@@ -8,7 +8,15 @@ export default StyleSheet.create({
     paddingTop: scaleVertical(20),
     backgroundColor: colors.primary,
   },
-
+  capture:{
+    borderRadius:scale(50),
+    height:scale(50)
+    },
+    capture2:{
+      backgroundColor:'red',
+      borderRadius:scale(50),
+      height:scale(50)
+      },
   inputLayout: {
     marginVertical: scaleVertical(5),
   },
@@ -35,9 +43,10 @@ export default StyleSheet.create({
   },
   cardTitle:{
     color:colors.textDark,
-    fontFamily:appFonts.regularText.fontFamily,
-    fontSize:scale(12),
-    paddingBottom:scale(5)
+    fontFamily:appFonts.Medium.fontFamily,
+    fontSize:scale(15),
+    paddingBottom:scale(5),
+    marginLeft:scale(30)
      },
      leftBar:{
       // height:scaleVertical(65),
@@ -54,6 +63,7 @@ export default StyleSheet.create({
       cardStatus:{
         fontSize:scale(12),
       fontFamily:appFonts.regularText.fontFamily,
+      color:colors.black
       
       
        },

@@ -63,7 +63,7 @@ const Education = () => {
     //   };
   }, [isFocused])
 
-  const sideColors = [colors.lightPink, colors.lightPurple, colors.orangeYellow]
+  const sideColors = [colors.lightPink, colors.lightPurple, colors.orangeYellow,colors.lightPink, colors.lightPurple, colors.orangeYellow,colors.lightPink, colors.lightPurple, colors.orangeYellow]
 
 
   const MatchedJobCard = [
@@ -135,23 +135,23 @@ const Education = () => {
           // style={{width:scale(100),}}
           bannerBackground={goalBanner}
           title={"Setting Smart Goals"}
-          btnText={"Read more"}
+          btnText={"Certificates"}
           btnStyle={styles.btnStyles}
           body={"Increase your marketability and pool of opportunities with certifications"}
-          onBtnPress={() => navigation.navigate(URL_ADD_CERTIFICATE)}
+          onBtnPress={() => navigation.navigate(URL_EDUCATIONDETAILS)}
         />
       </View>
 
 
       <View style={styles.layout}>
-        <View>
+        <TouchableOpacity>
           <Text style={{
             paddingTop: scale(80),
             fontFamily: appFonts.Medium.fontFamily, color: colors.black,
             fontSize: scale(16)
           }} >Credentials
           </Text>
-        </View>
+        </TouchableOpacity>
 
 
 

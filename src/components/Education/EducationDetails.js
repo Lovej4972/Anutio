@@ -177,23 +177,30 @@ const [open, setOpen] = useState(false)
             renderItem={({ item, index }) => (
               <View key={index} style={[styles.leftBar, { borderLeftColor: `${sideColors[index]}` }]}>
 
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                  <Text style={styles.cardTitle}>
-                    {item?.title}
-                  </Text>
-                  <IconGenerator tagName={"Dot"} />
+              <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                <Text style={styles.cardTitle}>
+                  {item?.title}
+                </Text>
+                <IconGenerator tagName={"Edit"} />
 
+              </View>
+              <View style={{ flexDirection: 'row' }}>
+                <View style={{ padding: scale(7), }}>
+                  <IconGenerator tagName={"Edit"} />
                 </View>
 
-                <Text style={styles.cardStatus}>
-                  {item?.description}
-                </Text>
-                <Text style={[styles.cardStatus]}>
-                  {new Date(item?.deadline).toDateString()}
-                  {/* {(item?.deadline).toLocaleDateString()} */}
-                  {/* {sideColors[index]} */}
-                </Text>
+                <View>
+                  <Text style={styles.cardStatus}>
+                    {item?.description}
+                  </Text>
+                  <Text style={[styles.cardStatus]}>
+                    {new Date(item?.deadline).toDateString()}
+                    {/* {(item?.deadline).toLocaleDateString()} */}
+                    {/* {sideColors[index]} */}
+                  </Text>
+                </View>
               </View>
+            </View>
             )}
           />
 
