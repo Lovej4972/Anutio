@@ -47,6 +47,9 @@ export const URL_LOGO_ANIMATION = 'logo-animate'
 export const URL_EDUCATION = 'education'
 export const URL_EDUCATIONDETAILS = 'education-details'
 export const URL_EDUCATIONDCERTIFICATE = 'education-certificate'
+export const URL_ADD_CERTIFICATE = 'add-certificate'
+export const URL_ADD_EDUCATION = 'add-education'
+
 
 
 

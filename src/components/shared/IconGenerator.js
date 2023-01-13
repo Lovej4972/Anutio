@@ -49,9 +49,15 @@ import JobCardIcon from '../../assets/svg/JobCardIcon';
 import Edit from '../../assets/svg/edit';
 import Edit2 from '../../assets/svg/edit2';
 import AddCircle from '../../assets/svg/addCircle';
+import Close from '../../assets/svg/close';
+import UntickSquare from '../../assets/svg/UntickSquare';
+import TickSquare from '../../assets/svg/TickSquare';
 
 import Dot from '../../assets/svg/dot';
 const components = {
+  TickSquare,
+  UntickSquare,
+  Close,
   Home,
   Network,
   Capture,

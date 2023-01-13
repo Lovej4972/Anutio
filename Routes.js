@@ -42,7 +42,9 @@ import {
   URL_ALL_CAPTURE,
   URL_EDUCATION,
   URL_EDUCATIONDETAILS,
-  URL_EDUCATIONDCERTIFICATE
+  URL_EDUCATIONDCERTIFICATE,
+  URL_ADD_EDUCATION,
+  URL_ADD_CERTIFICATE
 
 } from './src/constants/navigations';
 import IconGenerator from './src/components/shared/IconGenerator';
@@ -88,6 +90,8 @@ import AllCaptureScreen from './src/screens/CaptureScreen/AllCaptureScreen';
 import EducationScreen from './src/screens/EducationScreen/EducationScreen';
 import EducationDetailsScreen from './src/screens/EducationScreen/DetailsScreen';
 import CertificatesScreen from './src/screens/EducationScreen/CertificatesScreen';
+import AddEducationScreen from './src/screens/EducationScreen/AddEducation';
+import AddCertificateScreen from './src/screens/EducationScreen/AddCertificate';
 
 
 const Stack = createStackNavigator();
@@ -275,6 +279,8 @@ const AppStack = () => {
       <Stack.Screen name={URL_EDUCATION} component={EducationScreen} />
       <Stack.Screen name={URL_EDUCATIONDETAILS} component={EducationDetailsScreen} />
       <Stack.Screen name={URL_EDUCATIONDCERTIFICATE} component={CertificatesScreen} />
+      <Stack.Screen name={URL_ADD_EDUCATION} component={AddEducationScreen} />
+      <Stack.Screen name={URL_ADD_CERTIFICATE} component={AddCertificateScreen} />
       
     </Stack.Navigator>
   );

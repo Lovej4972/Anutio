@@ -9,7 +9,13 @@ export default StyleSheet.create({
     backgroundColor: colors.primary,
   },
 
-
+  inputLayout: {
+    marginVertical: scaleVertical(5),
+  },
+  inputLayout2: {
+    marginVertical: scaleVertical(5),
+    width:scale(40)*3.7
+  },
   culve: {
     height: scale(50),
     width: scale(80),

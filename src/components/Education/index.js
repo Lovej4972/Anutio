@@ -4,7 +4,7 @@ import Header from '../../components/shared/HeaderNav/Header';
 import HeaderAvatar from '../../components/shared/HeaderNav/HeaderAvatar';
 import VerticalScroll from '../shared/scroll/VerticalScroll';
 import Ellipse from '../../assets/images/Ellipse.png';
-import { URL_EDUCATIONDETAILS, URL_TAB } from '../../constants/navigations';
+import { URL_ADD_CERTIFICATE, URL_ADD_EDUCATION, URL_EDUCATIONDCERTIFICATE, URL_EDUCATIONDETAILS, URL_TAB } from '../../constants/navigations';
 import Button from '../shared/Button';
 import colors from '../../constants/colors';
 import { appFonts, scale, scaleVertical } from '../../constants/scale';
@@ -32,7 +32,7 @@ import useGetGoal from '../../hooks/goal/useGetGoal';
 const Education = () => {
   const navigation = useNavigation()
 
-const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false)
   const myListEmpty = () => {
     return (
       <View style={{ alignItems: "center" }}>
@@ -138,36 +138,36 @@ const [open, setOpen] = useState(false)
           btnText={"Read more"}
           btnStyle={styles.btnStyles}
           body={"Increase your marketability and pool of opportunities with certifications"}
-          onBtnPress={() => navigation.navigate(URL_EDUCATIONDETAILS)}
+          onBtnPress={() => navigation.navigate(URL_ADD_CERTIFICATE)}
         />
       </View>
 
 
       <View style={styles.layout}>
-      <View>
-            <Text style={{
-              paddingTop: scale(80),
-              fontFamily: appFonts.Medium.fontFamily, color: colors.black,
-              fontSize: scale(16)
-            }} >Credentials
-            </Text>
-          </View>
-        
- 
+        <View>
+          <Text style={{
+            paddingTop: scale(80),
+            fontFamily: appFonts.Medium.fontFamily, color: colors.black,
+            fontSize: scale(16)
+          }} >Credentials
+          </Text>
+        </View>
 
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginVertical: scale(20) }}>
-            <TouchableOpacity style={{ backgroundColor: colors.primary, padding: scale(10), borderRadius: scale(20), paddingHorizontal: scale(20) }}>
-              <Text style={{ color: colors.white }}>Sync Linkedin</Text>
-            </TouchableOpacity>
 
-            <TouchableOpacity
-            onPress={()=>setOpen(true)} style={{ elevation: 2, backgroundColor: open? colors.white: colors.primary, padding: scale(10), borderRadius: scale(20), paddingHorizontal: scale(20) }}>
-              <Text style={{ color:open? colors.primary:colors.white }}>Upload File</Text>
-            </TouchableOpacity>
 
-          </View>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginVertical: scale(20) }}>
+          <TouchableOpacity style={{ backgroundColor: colors.primary, padding: scale(10), borderRadius: scale(20), paddingHorizontal: scale(20) }}>
+            <Text style={{ color: colors.white }}>Sync Linkedin</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            onPress={() => setOpen(true)} style={{ elevation: 2, backgroundColor: open ? colors.white : colors.primary, padding: scale(10), borderRadius: scale(20), paddingHorizontal: scale(20) }}>
+            <Text style={{ color: open ? colors.primary : colors.white }}>Upload File</Text>
+          </TouchableOpacity>
+
+        </View>
         <VerticalScroll bgColor={colors.background2}>
-         
+
           <View>
             <Text style={{
               paddingTop: scale(10),
@@ -217,7 +217,7 @@ const [open, setOpen] = useState(false)
             }} >Recommendation
             </Text>
             <Text style={{
-               padding: scale(5),
+              padding: scale(5),
               fontFamily: appFonts.regularText.fontFamily, color: colors.black,
               fontSize: scale(16)
             }} >

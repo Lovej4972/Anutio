@@ -117,7 +117,7 @@ const [open, setOpen] = useState(false)
         <Header
           leftIcon={'BackArrow'}
           onLeftIconPress={() => navigation.goBack()}
-          title={'Education Details'}
+          title={'Certificates'}
           iconColor={colors.white}
         />
 
@@ -148,7 +148,7 @@ const [open, setOpen] = useState(false)
               // paddingTop: scale(80),
               fontFamily: appFonts.Medium.fontFamily, color: colors.black,
               fontSize: scale(16)
-            }} >Education
+            }} >Certificates
             </Text>
             <TouchableOpacity>
               <Text style={{

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { createRef, useEffect, useState } from 'react'
 import { View, Text, TouchableOpacity, Image, FlatList, Alert, ActivityIndicator } from 'react-native';
 import Header from '../../components/shared/HeaderNav/Header';
 import HeaderAvatar from '../../components/shared/HeaderNav/HeaderAvatar';
@@ -11,6 +11,8 @@ import { appFonts, scale, scaleVertical } from '../../constants/scale';
 import { useIsFocused, useNavigation } from '@react-navigation/native';
 import Banner from '../shared/Banner'
 import skillMapBanner from '../../assets/images/skillMapBanner.png'
+// import Button from '../shared/Button';
+
 
 // import ProfileForm from './component/ProfileForm';
 import styles from './styles';
@@ -30,18 +32,23 @@ import useGetGoal from '../../hooks/goal/useGetGoal';
 
 
 const AddEducation = () => {
-  const navigation = useNavigation()
+  const [name, setName] = useState('');
+  const [nameError, setNameError] = useState('');
 
-const [open, setOpen] = useState(false)
-  const myListEmpty = () => {
-    return (
-      <View style={{ alignItems: "center" }}>
-        {/* <Text style={styles.item}>No data found</Text>
-   */}
-        <ActivityIndicator color={colors.primary} />
-      </View>
-    );
+
+ const handleTextChange = (name, value) => {
+    if (name === 'name') {
+      setName(value);
+      setNameError('');
+    }
+  
+    
   };
+ 
+  const navigation = useNavigation()
+  const nameRef = createRef();
+
+  const [open, setOpen] = useState(false)
 
   const isFocused = useIsFocused()
   // const navigation = useNavigation();
@@ -50,64 +57,13 @@ const [open, setOpen] = useState(false)
 
   const { handleGetGoal, error, isLoading, data, reset } = useGetGoal()
 
-  const getUserGoal = async () => {
-    await handleGetGoal()
-    setGoals(data)
 
-    // set
-  }
-  useEffect(() => {
-    //   return () => {
-    // effect
-    getUserGoal()
-    //   };
-  }, [isFocused])
 
   const sideColors = [colors.lightPink, colors.lightPurple, colors.orangeYellow]
 
 
-  const MatchedJobCard = [
 
-    {
-      id: 1,
-      title: "Get Matched",
-      iconName: "getMatched"
 
-    },
-
-    {
-      id: 2,
-      title: "My Jobs",
-      iconName: "JobCardIcon"
-
-    },
-
-  ]
-
-  const cardList = [
-
-    {
-      id: 1,
-      iconName: "EduIcon",
-      title: "Education",
-    },
-    {
-      id: 2,
-      iconName: "ProjIcon",
-      title: "Peojects",
-
-    },
-    {
-      id: 3,
-      iconName: "CareerSkiilMapIcon",
-      title: "Skills & Career \n Map",
-    },
-    {
-      id: 4,
-      iconName: "JobIcon",
-      title: "Jobs",
-    },
-  ]
 
 
   return (
@@ -115,9 +71,9 @@ const [open, setOpen] = useState(false)
     <View style={styles.container}>
       <View style={{ paddingHorizontal: scale(20) }}>
         <Header
-          leftIcon={'BackArrow'}
+          leftIcon={'Close'}
           onLeftIconPress={() => navigation.goBack()}
-          title={'Education Details'}
+          title={'Add Education'}
           iconColor={colors.white}
         />
 
@@ -128,74 +84,151 @@ const [open, setOpen] = useState(false)
         borderTopLeftRadius: scale(40),
         paddingHorizontal: scale(20),
         // zIndex: 1000,
-      
+
         flex: 1
       }}>
-      
+
       </View>
 
 
-      <View style={{ elevation:2,
-    flex: 1,
-    backgroundColor: colors.background2,
-    // paddingTop: scaleVertical(20),
-    borderTopRightRadius: scale(40),
-    borderTopLeftRadius: scale(40),
-    paddingHorizontal: scale(20),
-    marginTop:-500}}>
-      <View style={{flexDirection:'row',justifyContent:'space-between',marginVertical:scale(15)}}>
-            <Text style={{
-              // paddingTop: scale(80),
-              fontFamily: appFonts.Medium.fontFamily, color: colors.black,
-              fontSize: scale(16)
-            }} >Education
-            </Text>
-            <TouchableOpacity>
-              <Text style={{
-              paddingRight: scale(10),
-              fontFamily: appFonts.BoldText.fontFamily, color: colors.black,
-              fontSize: scale(19)
-            }} >+</Text>
-              </TouchableOpacity>
+      <View style={{
+        elevation: 2,
+        flex: 1,
+        backgroundColor: colors.background2,
+        // paddingTop: scaleVertical(20),
+        borderTopRightRadius: scale(40),
+        borderTopLeftRadius: scale(40),
+        paddingHorizontal: scale(20),
+        marginTop: -500
+      }}>
+
+        <TouchableOpacity>
+          <View style={{ flexDirection: 'row', justifyContent: 'flex-end', marginVertical: scale(20) }}>
+
+
+            <TouchableOpacity
+              style={{ elevation: 2, backgroundColor: open ? colors.white : colors.primary, padding: scale(10), borderRadius: scale(20), paddingHorizontal: scale(20) }}>
+              <Text style={{ color: open ? colors.primary : colors.white }}> Sync Linkedin</Text>
+            </TouchableOpacity>
+
           </View>
-        
- 
+        </TouchableOpacity>
 
-       
-        <VerticalScroll bgColor={colors.background2}>
-         
-         
+        <View style={styles.inputLayout}>
+        <Input
+          ref={nameRef}
+          editable
+          maxLength={40}
+          label="School"
+          autoCapitalize="none"
+          name="firstNamenput"
+          // icon={'User'}
+          returnKeyType="next"
+          autoCorrect={false}
+          onSubmitEditing={() => {
+            if (emailRef && emailRef.current) {
+              emailRef.current.focus();
+            }
+          }}
+          autoCompleteType="email"
+          placeholder="School's name e.g University of ABC"
+          value={name}
+          onChangeText={text => handleTextChange('name', text)}
+          blurOnSubmit={false}
+          error={nameError}
+        />
+      </View>
 
-          <FlatList
-            // maxToRenderPerBatch={2}
-            vertical
-            showsHorizontalScrollIndicator={true}
-            ListEmptyComponent={myListEmpty}
-            data={data}
-            extraData={sideColors}
-            keyExtractor={item => item.id}
-            renderItem={({ item, index }) => (
-              <View key={index} style={[styles.leftBar, { borderLeftColor: `${sideColors[index]}` }]}>
 
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                  <Text style={styles.cardTitle}>
-                    {item?.title}
-                  </Text>
-                  <IconGenerator tagName={"Dot"} />
+      <View style={styles.inputLayout}>
+        <Input
+          ref={nameRef}
+          editable
+          maxLength={40}
+          label="Degree Earned"
+          autoCapitalize="none"
+          name="firstNamenput"
+          // icon={'User'}
+          returnKeyType="next"
+          autoCorrect={false}
+          onSubmitEditing={() => {
+            if (emailRef && emailRef.current) {
+              emailRef.current.focus();
+            }
+          }}
+          autoCompleteType="email"
+          placeholder="E.g Masters"
+          value={name}
+          onChangeText={text => handleTextChange('name', text)}
+          blurOnSubmit={false}
+          error={nameError}
+        />
+      </View>
 
-                </View>
+      <View style={styles.inputLayout}>
+        <Input
+          ref={nameRef}
+          editable
+          maxLength={40}
+          label="Field of study"
+          autoCapitalize="none"
+          name="firstNamenput"
+          // icon={'User'}
+          returnKeyType="next"
+          autoCorrect={false}
+          onSubmitEditing={() => {
+            if (emailRef && emailRef.current) {
+              emailRef.current.focus();
+            }
+          }}
+          autoCompleteType="email"
+          placeholder="E.g Psychology"
+          value={name}
+          onChangeText={text => handleTextChange('name', text)}
+          blurOnSubmit={false}
+          error={nameError}
+        />
+      </View>
 
-                <Text style={styles.cardStatus}>
-                  {item?.description}
-                </Text>
-                <Text style={[styles.cardStatus]}>
-                  {new Date(item?.deadline).toDateString()}
-                  {/* {(item?.deadline).toLocaleDateString()} */}
-                  {/* {sideColors[index]} */}
-                </Text>
-              </View>
-            )}
+
+      <View style={styles.inputLayout}>
+        <Input
+          ref={nameRef}
+          editable
+          maxLength={40}
+          label="Date Earned"
+          autoCapitalize="none"
+          name="firstNamenput"
+          icon={'CalenderSvg'}
+          returnKeyType="next"
+          autoCorrect={false}
+          onSubmitEditing={() => {
+            if (emailRef && emailRef.current) {
+              emailRef.current.focus();
+            }
+          }}
+          autoCompleteType="email"
+          placeholder="Date"
+          value={name}
+          onChangeText={text => handleTextChange('name', text)}
+          blurOnSubmit={false}
+          error={nameError}
+        />
+      </View>
+
+      <Button
+      style={{borderRadius:50}}
+            text={'Save'}
+            // buttonStyle={styles.capture}
+            // loading={isLoading}
+            // onPress={handleSubmit}
           />
+
+        <VerticalScroll bgColor={colors.background2}>
+
+
+
+
 
 
 
